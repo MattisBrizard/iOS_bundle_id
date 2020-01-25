@@ -21,7 +21,6 @@ jobs:
 
       - name: Build
         run: |
-          flutter clean
           flutter pub get
           flutter build web
 
