@@ -1,6 +1,6 @@
 import 'package:flappy_search_bar/flappy_search_bar.dart';
-import 'package:flappy_search_bar/scaled_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iOS_bundle_id/data/entities/application.dart';
 import 'package:iOS_bundle_id/data/sources/search_api_client.dart';
 import 'package:provider/provider.dart';
@@ -8,14 +8,19 @@ import 'package:provider/provider.dart';
 /// The search view.
 class SearchView extends StatelessWidget {
   /// Creates a [SearchView].
-  const SearchView({
+  SearchView({
     Key key,
   }) : super(key: key);
 
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: _View(),
+    return Scaffold(
+      key: _scaffoldKey,
+      body: Provider.value(
+        value: _scaffoldKey,
+        child: const _View(),
+      ),
     );
   }
 }
@@ -48,22 +53,44 @@ class __ViewState extends State<_View> {
           child: Text('placeholder'),
         ),
         cancellationWidget: const Text('Clear'),
-        emptyWidget: const Text("empty"),
+        emptyWidget: const Center(
+          child: Text('No applications found.'),
+        ),
         onCancelled: () {
-          print("Cancelled triggered");
+          print('Cancelled triggered');
         },
         onError: (e) {
           return Text('error triggerrd');
         },
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         onItemFound: (Application app, int index) {
           return ListTile(
             leading: Image.network(app.artworkUrl),
             title: Text(app.trackName),
             subtitle: Text(app.bundleId),
             onTap: () {
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (context) => Detail()));
+              Clipboard.setData(ClipboardData(text: app.bundleId)).then((_) {
+                Provider.of<GlobalKey<ScaffoldState>>(context, listen: false)
+                    .currentState
+                    .showSnackBar(
+                      SnackBar(
+                        content: const Text('Bundle ID copied to clipboard !'),
+                        duration: const Duration(milliseconds: 1500),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+              }).catchError((e) {
+                Provider.of<GlobalKey<ScaffoldState>>(context, listen: false)
+                    .currentState
+                    .showSnackBar(
+                      SnackBar(
+                        content: const Text(
+                            'Error copying bundle ID to clipboard !'),
+                        duration: const Duration(milliseconds: 1500),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+              });
             },
           );
         },

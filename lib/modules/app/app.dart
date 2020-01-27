@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         create: (BuildContext context) => SearchApiClient(
           client: http.Client(),
         ),
-        child: const SearchView(),
+        child: SearchView(),
       ),
     );
   }
