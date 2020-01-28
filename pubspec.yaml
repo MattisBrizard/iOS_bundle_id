@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flappy_search_bar: ^1.7.2
+  http: ^0.12.0+4
+  provider: ^4.0.2
 
 dev_dependencies:
   flutter_test:
