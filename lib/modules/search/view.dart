@@ -1,5 +1,4 @@
 import 'dart:html';
-
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -194,6 +193,7 @@ Future _launchURL(String url, GlobalKey<ScaffoldState> scaffold) async {
         ),
         duration: const Duration(milliseconds: 1500),
         backgroundColor: Colors.red,
+
       ),
     );
   }
