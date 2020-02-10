@@ -1,17 +1,42 @@
 'use strict';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "/index.html": "7533ead3b776be52e7b97b51199c7598",
+  "/index.html": "34bb98fba9df4027ba349177f10fa087",
 "/manifest.json": "a25a289d9e559469dae80791fb66924c",
-"/icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"/icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"/icons/android-icon-96x96.png": "9edd3a64dc2e66d54461582f7184fb51",
+"/icons/apple-icon-60x60.png": "c75b312e3677a984b36f202659bb5d4e",
+"/icons/android-icon-192x192.png": "4a96772ccf33e44f2129e97823f07d99",
+"/icons/apple-icon-180x180.png": "d2ef5eda92c87a729942e22bd5cc7707",
+"/icons/apple-icon-precomposed.png": "be6e6ce6650f49be58ae8c910101a68f",
+"/icons/ms-icon-144x144.png": "73537edf94730e69e2235e5e1a472238",
+"/icons/manifest.json": "b58fcfa7628c9205cb11a1b2c3e8f99a",
+"/icons/android-icon-36x36.png": "6efa398f79d9de8bc984a6de0746b127",
+"/icons/android-icon-72x72.png": "1824bc84ec2e2dc0d989ed659b557e19",
+"/icons/android-icon-144x144.png": "73537edf94730e69e2235e5e1a472238",
+"/icons/apple-icon-144x144.png": "73537edf94730e69e2235e5e1a472238",
+"/icons/apple-icon-72x72.png": "1824bc84ec2e2dc0d989ed659b557e19",
+"/icons/apple-icon-57x57.png": "f15753986c91a483ec8bbf0fb659cdfc",
+"/icons/apple-icon-152x152.png": "236267bbfd3bf29f3d33183b690885e7",
+"/icons/ms-icon-150x150.png": "1230af4fd1b8f846a61a87adb254eafc",
+"/icons/apple-icon-114x114.png": "504a8ec4718dde46ee72e05780be1b0a",
+"/icons/favicon-96x96.png": "9edd3a64dc2e66d54461582f7184fb51",
+"/icons/apple-icon-76x76.png": "906ab71c1e2753cbe393dc0c293fe280",
+"/icons/apple-icon.png": "be6e6ce6650f49be58ae8c910101a68f",
+"/icons/favicon-32x32.png": "a2835f6c489c2d69ad248e9b255b19e4",
+"/icons/ms-icon-310x310.png": "34a74c71cf3991c1445af3e33053f0e3",
+"/icons/ms-icon-70x70.png": "2b15a60a8d5b10c9cf3d7f42649e91dc",
+"/icons/android-icon-48x48.png": "450e2e54dd9249d7120fca67b87ad102",
+"/icons/browserconfig.xml": "653d077300a12f09a69caeea7a8947f8",
+"/icons/favicon-16x16.png": "2ba60ec9b1112ee4462fa46af48dbc6f",
+"/icons/apple-icon-120x120.png": "31cdebc269ba897420d041f3d1e109a2",
+"/icons/favicon.ico": "2850fcb5ef3b5752fa8c2c35a06eb028",
 "/assets/assets/images/twitter.png": "3d2099a2710f64ccffba2695a075890a",
 "/assets/assets/images/bmc.png": "076ce920fe95d3c54dc1c00c6a1d74ad",
 "/assets/AssetManifest.json": "1c064e9c276aa3b4c28d97c20fc592d7",
 "/assets/LICENSE": "63e03e4ce5f13798a57ad0022c0e459a",
 "/assets/FontManifest.json": "580ff1a5d08679ded8fcf5c6848cece7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"/main.dart.js": "a708960768b0a65d76e4964f3f81a1fa"
+"/main.dart.js": "76834068608e5c5d90c97fc5de689eb4"
 };
 
 self.addEventListener('activate', function (event) {
