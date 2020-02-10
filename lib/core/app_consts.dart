@@ -3,6 +3,5 @@ abstract class AppConsts {
   const AppConsts._();
 
   /// The application searching url.
-  static const String appSearchUrl =
-      'https://itunes.apple.com/search?limit=10&media=software&term=';
+  static const String appSearchUrl = 'https://search-itunes.now.sh/';
 }

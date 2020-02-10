@@ -15,10 +15,13 @@ class SearchApiClient {
   final http.Client client;
 
   /// Search applications with a given search input.
-  Future<List<Application>> searchApplications(String search) async {
+  Future<List<Application>> searchApplications(
+    String search, {
+    int limit = 10,
+  }) async {
     final http.Response response = await client
         .get(
-          '${AppConsts.appSearchUrl}$search',
+          '${AppConsts.appSearchUrl}?limit=$limit&media=software&term=$search',
         )
         .timeout(
           const Duration(seconds: 5),
