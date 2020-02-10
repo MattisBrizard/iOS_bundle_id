@@ -31,12 +31,12 @@ const RESOURCES = {
 "/icons/apple-icon-120x120.png": "31cdebc269ba897420d041f3d1e109a2",
 "/icons/favicon.ico": "2850fcb5ef3b5752fa8c2c35a06eb028",
 "/assets/assets/images/twitter.png": "3d2099a2710f64ccffba2695a075890a",
-"/assets/assets/images/bmc.png": "076ce920fe95d3c54dc1c00c6a1d74ad",
-"/assets/AssetManifest.json": "1c064e9c276aa3b4c28d97c20fc592d7",
+"/assets/assets/images/github.png": "472739dfb5857b1f659f4c4c6b4568d0",
+"/assets/AssetManifest.json": "6e9976cf4019e754c2d69fc2325f7036",
 "/assets/LICENSE": "63e03e4ce5f13798a57ad0022c0e459a",
 "/assets/FontManifest.json": "580ff1a5d08679ded8fcf5c6848cece7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"/main.dart.js": "76834068608e5c5d90c97fc5de689eb4"
+"/main.dart.js": "4d5600ee057b376c922d170ce0bec44e"
 };
 
 self.addEventListener('activate', function (event) {
