@@ -14,7 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'iOS bundle id',
+      title: 'Bundle ID finder',
       home: Provider(
         create: (BuildContext context) => SearchApiClient(
           client: http.Client(),

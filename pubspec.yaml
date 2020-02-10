@@ -1,6 +1,6 @@
 name: iOS_bundle_id
 description: Get the bundle id of an iOS AppStore app.
-version: 0.1.0
+version: 0.1.1
 
 environment:
   sdk: '>=2.7.0 <3.0.0'
@@ -20,5 +20,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/bmc.png
+    - assets/images/github.png
     - assets/images/twitter.png

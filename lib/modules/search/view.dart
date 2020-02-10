@@ -2,6 +2,7 @@ import 'dart:html';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iOS_bundle_id/core/app_consts.dart';
 import 'package:iOS_bundle_id/data/entities/application.dart';
 import 'package:iOS_bundle_id/data/sources/search_api_client.dart';
 import 'package:provider/provider.dart';
@@ -36,9 +37,6 @@ class _View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scaffold =
-        Provider.of<GlobalKey<ScaffoldState>>(context, listen: false);
-
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Padding(
@@ -81,44 +79,7 @@ class _View extends StatelessWidget {
                 },
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1DA1F2),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  width: 50,
-                  height: 50,
-                  child: FlatButton(
-                    child: Image.asset('assets/images/twitter.png'),
-                    onPressed: () => _launchURL(
-                      'https://twitter.com/Tisboul',
-                      scaffold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFF813F),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  width: 50,
-                  height: 50,
-                  child: FlatButton(
-                    child: Image.asset('assets/images/bmc.png'),
-                    onPressed: () => _launchURL(
-                      'https://www.buymeacoffee.com/qNemCBRVY',
-                      scaffold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            const _SocialLinks(),
           ],
         ),
       ),
@@ -126,7 +87,7 @@ class _View extends StatelessWidget {
   }
 }
 
-/// A widget.
+/// An application tile widget.
 class _AppItem extends StatelessWidget {
   /// Creates a [_AppItem].
   const _AppItem({
@@ -153,30 +114,85 @@ class _AppItem extends StatelessWidget {
           Provider.of<GlobalKey<ScaffoldState>>(context, listen: false)
               .currentState
               .showSnackBar(
-                SnackBar(
-                  content: const SizedBox(
+                const SnackBar(
+                  content: SizedBox(
                     height: 50,
                     child: Text('Bundle ID copied to clipboard !'),
                   ),
-                  duration: const Duration(milliseconds: 1500),
-                  backgroundColor: Colors.green,
+                  duration: Duration(milliseconds: 1500),
+                  backgroundColor: Color(0xFF4CAF50),
                 ),
               );
         }, onError: (e) {
           Provider.of<GlobalKey<ScaffoldState>>(context, listen: false)
               .currentState
               .showSnackBar(
-                SnackBar(
-                  content: const SizedBox(
+                const SnackBar(
+                  content: SizedBox(
                     height: 50,
                     child: Text('Error copying bundle ID to clipboard !'),
                   ),
-                  duration: const Duration(milliseconds: 1500),
-                  backgroundColor: Colors.red,
+                  duration: Duration(milliseconds: 1500),
+                  backgroundColor: Color(0xFFF44336),
                 ),
               );
         });
       },
+    );
+  }
+}
+
+/// A social links row.
+class _SocialLinks extends StatelessWidget {
+  /// Creates a [_SocialLinks].
+  const _SocialLinks({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final scaffold =
+        Provider.of<GlobalKey<ScaffoldState>>(context, listen: false);
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF1DA1F2),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          width: 50,
+          height: 50,
+          child: FlatButton(
+            child: Image.asset(AppConsts.twitterImgPath),
+            onPressed: () => _launchURL(
+              AppConsts.twitterUrl,
+              scaffold,
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF000000),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          width: 50,
+          height: 50,
+          child: FlatButton(
+            child: Image.asset(
+              AppConsts.githubImgPath,
+            ),
+            onPressed: () => _launchURL(
+              AppConsts.githubUrl,
+              scaffold,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -193,7 +209,6 @@ Future _launchURL(String url, GlobalKey<ScaffoldState> scaffold) async {
         ),
         duration: const Duration(milliseconds: 1500),
         backgroundColor: Colors.red,
-
       ),
     );
   }
