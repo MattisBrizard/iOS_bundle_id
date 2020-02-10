@@ -8,4 +8,4 @@ Available at https://mattisbrizard.github.io/iOS_bundle_id/#/
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/qNemCBRVY" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/qNemCBRVY" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="217" height="51" ></a>
