@@ -1,7 +1,9 @@
 import 'dart:html';
+import 'package:firebase/firebase.dart';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iOS_bundle_id/core/app_analytics.dart';
 import 'package:iOS_bundle_id/core/app_consts.dart';
 import 'package:iOS_bundle_id/data/entities/application.dart';
 import 'package:iOS_bundle_id/data/sources/search_api_client.dart';
@@ -16,6 +18,7 @@ class SearchView extends StatelessWidget {
   }) : super(key: key);
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +40,14 @@ class _View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SearchApiClient apiClient = Provider.of<SearchApiClient>(
+      context,
+      listen: false,
+    );
+    final AppAnalytics analytics = Provider.of<AppAnalytics>(
+      context,
+      listen: false,
+    );
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Padding(
@@ -48,10 +59,7 @@ class _View extends StatelessWidget {
                 searchBarPadding:
                     EdgeInsets.symmetric(horizontal: size.width / 8),
                 listPadding: EdgeInsets.symmetric(horizontal: size.width / 8),
-                onSearch: Provider.of<SearchApiClient>(
-                  context,
-                  listen: false,
-                ).searchApplications,
+                onSearch: (search) => _searchApp(search, apiClient, analytics),
                 debounceDuration: const Duration(seconds: 1),
                 placeHolder: Center(
                   child: Container(
@@ -84,6 +92,15 @@ class _View extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<List<Application>> _searchApp(
+    String search,
+    SearchApiClient client,
+    AppAnalytics analytics,
+  ) async {
+    analytics.logSearchApp(search);
+    return client.searchApplications(search);
   }
 }
 
