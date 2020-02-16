@@ -1,7 +1,7 @@
 'use strict';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "/index.html": "34bb98fba9df4027ba349177f10fa087",
+  "/index.html": "764466633335ca32c07d47fb1045ff41",
 "/manifest.json": "a25a289d9e559469dae80791fb66924c",
 "/icons/android-icon-96x96.png": "9edd3a64dc2e66d54461582f7184fb51",
 "/icons/apple-icon-60x60.png": "c75b312e3677a984b36f202659bb5d4e",
@@ -33,10 +33,10 @@ const RESOURCES = {
 "/assets/assets/images/twitter.png": "3d2099a2710f64ccffba2695a075890a",
 "/assets/assets/images/github.png": "472739dfb5857b1f659f4c4c6b4568d0",
 "/assets/AssetManifest.json": "6e9976cf4019e754c2d69fc2325f7036",
-"/assets/LICENSE": "63e03e4ce5f13798a57ad0022c0e459a",
+"/assets/LICENSE": "e5cc1661b7fac549872cf6f8c493fd65",
 "/assets/FontManifest.json": "580ff1a5d08679ded8fcf5c6848cece7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"/main.dart.js": "4d5600ee057b376c922d170ce0bec44e"
+"/main.dart.js": "a31b25dffcba5b779669c04ccda4c8c3"
 };
 
 self.addEventListener('activate', function (event) {
